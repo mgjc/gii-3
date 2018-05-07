@@ -1,0 +1,171 @@
+V "GNAT Lib v2011"
+M P W=b
+A -gnatA
+P SS ZX
+R nnnnnnnnnvvnnnnnnnvvnvnnvvnnnvnnnnvnnnnnnnnnvnnnnvnvnnnnnnvnvvnnnnvnnnnnnnv1+nnnv1+nn
+
+U final%b		final.adb		9b7b55c2 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization.heap_management%s  a-fihema.adb  a-fihema.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.discrete_random%s
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.real_time.delays%s  a-retide.adb		a-retide.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W central%s		central.adb		central.ali
+W system%s		system.ads		system.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
+W system.concat_4%s	s-conca4.adb		s-conca4.ali
+W system.img_int%s	s-imgint.adb		s-imgint.ali
+W system.parameters%s	s-parame.adb		s-parame.ali
+W system.random_numbers%s  s-rannum.adb		s-rannum.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W system.task_info%s	s-tasinf.adb		s-tasinf.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+W system.tasking.stages%s  s-tassta.adb		s-tassta.ali
+
+D ada.ads		20110428140902 3ffc8e18
+D a-calend.ads		20110428140858 343c83dd
+D a-except.ads		20110428140900 4759ecee
+D a-finali.ads		20110428140900 b333d305
+D a-fihema.ads		20110428140900 1940728a
+D a-ioexce.ads		20110428140900 8b9de6cd
+D a-numeri.ads		20110428140902 bb51c45a
+D a-nudira.ads		20110428140902 2fef2912
+D a-nudira.adb		20110428140902 e57ce22b
+D a-reatim.ads		20110428140902 63f07669
+D a-retide.ads		20110428140902 081cdaa4
+D a-rttiev.ads		20110428140902 22f35a33
+D a-stream.ads		20110428140902 2ca4ee37
+D a-tags.ads		20110428140902 7b33f560
+D a-textio.ads		20110428140902 386df5d4
+D a-unccon.ads		20110428140902 f9eb8f06
+D central.ads		20180119075940 d02cd567
+D final.adb		20180119075700 3f252a0a
+D interfac.ads		20110428140906 f77d8799
+D i-c.ads		20110428140906 5421119b
+D i-cstrin.ads		20110428140906 341d0ddf
+D i-cstrea.ads		20110428140906 1bd72c32
+D system.ads		20110428140910 bc164b96
+D s-atacco.ads		20110428140906 1dc856ad
+D s-conca2.ads		20110428140906 fbd0f2fc
+D s-conca4.ads		20110428140906 025fe3be
+D s-crtl.ads		20110428140906 ac77b159
+D s-exctab.ads		20110428140906 66e51330
+D s-ficobl.ads		20110428140906 443b9d66
+D s-finroo.ads		20110428140906 2dd85ce2
+D s-imgint.ads		20110428140906 02dbe0c2
+D s-imguns.ads		20110428140906 9ff43cf7
+D s-multip.ads		20110428140908 38ac9f73
+D s-osinte.ads		20110428140908 ecf1fbfd
+D s-parame.ads		20110428140908 03aa3b01
+D s-pooglo.ads		20110428140908 542f33d0
+D s-rannum.ads		20110428140908 5eb33f0a
+D s-rannum.adb		20110428140908 67756f39
+D s-secsta.ads		20110428140908 eea35a36
+D s-soflin.ads		20110428140908 607487c5
+D s-stache.ads		20110428140908 596fc1b4
+D s-stausa.ads		20110428140908 017a0a05
+D s-stalib.ads		20110428140908 f78bcf95
+D s-stoele.ads		20110428140908 facd7d98
+D s-stoele.adb		20110428140908 afc5dc80
+D s-stopoo.ads		20110428140908 5c51faf9
+D s-tasinf.ads		20110428140908 859198ad
+D s-taspri.ads		20110428140908 196697f7
+D s-taprop.ads		20110428140908 07f79e46
+D s-taskin.ads		20110428140908 b2eaee08
+D s-taprob.ads		20110428140908 502249e3
+D s-tpoben.ads		20110428140908 e8374469
+D s-tpobop.ads		20110428140908 5f548bb3
+D s-tassta.ads		20110428140908 e88ef99e
+D s-traent.ads		20110428140908 5221ee41
+D s-unstyp.ads		20110428140908 6ae15c76
+D s-valuns.ads		20110428140908 10a8ed3b
+D s-wchcon.ads		20110428140910 bfeb2e3d
+D s-win32.ads		20110428140910 07238fa2
+X 1 ada.ads
+16K9*Ada 19e8 18|1r6 3r6 4r6 5r5 25r27 96r7 98r7 100r7 103r5 122r11 127r11
+. 141r11 146r11
+X 7 a-numeri.ads
+16K13*Numerics 32e17 18|3r10 25r31
+X 8 a-nudira.ads
+44k22*Discrete_Random 73e33 18|3w19 25r40
+48R9 Generator 18|26r18[25]
+50V13 Random{integer} 18|36s49[25]
+53U14 Reset<37|91p14> 18|31s12[25]
+X 9 a-nudira.adb
+51V16 Random[37|74]{integer} 38|394b13[18|25]
+X 10 a-reatim.ads
+39K13*Real_Time 139e18 18|4w10 5r9
+41O9*Time 18|27r23 63r21
+46O9*Time_Span 18|29r35 66r34 67r29
+53V13*Clock{41O9} 18|33s25 69s23
+55V13*"+"{41O9} 18|44s44 76s41 157s42
+85V13*Milliseconds{46O9} 18|67s42
+87V13*Seconds{46O9} 18|29s48 66s47
+X 15 a-textio.ads
+49K13*Text_IO 471e16 18|1w10 96r11 98r11 100r11 103r9 122r15 127r15 141r15
+. 146r15
+242U14*Put 18|96s19 98s19 100s19
+263U14*Put_Line 18|103s17 122s23 127s23 141s23 146s23
+X 17 central.ads
+7K9*Central 30e12 18|2w6 49r29 112r22 130r22
+10i3*PRODUCC_MAX{integer} 18|112r30
+11i3*PRODUCC_MIN{integer} 18|130r30
+15W18*Central 29e14 18|49r37
+16Y11 Leer_Valor 18|84s20
+17Y11 Incremento 18|124s38
+18Y11 Decremento 18|143s38
+19Y11 mantener 18|153s22
+20Y11 inicio 18|72s18
+X 18 final.adb
+8U11*Final 8b11 160l5 160t10
+10i3 CONSUMO_MAX_CIUDAD{integer} 37r27 38r27
+11i3 CONSUMO_MIN_CIUDAD{integer} 40r27 41r27
+15i3 consumo{integer} 16r19 17r17 35r25 43m7 80r23
+20T13 Actualizador_Ciudad 21l7 21e26 23b13 47l7 47t26 52r9
+24I13 RngRange{integer} 25r56
+25K13 Random[8|44] 26r11 31r5 36r42
+26r5 seed{8|48R9[25]} 31r18 36r56
+27o5 tiempo_operacion{10|41O9} 33m5 44m7 44r27 45r19
+28i5 consumo_Actual{integer} 35m7 36m7 36r25 37r10 38m9 40r10 41m9 43r18
+29o5 Intervalo_Resfresco{10|46O9} 44r46
+49a3 centrales(17|15W18) 71r12 72r5 83r14 84r7 124r11 143r11 153r9
+50a3 centrales_usadas(boolean) 105r14 106m7 115r51 125m11 134r51 144m11 151r14
+. 152r10
+51a3 valores_actuales(integer) 84m31 84r31 89r14 90r34 110r14 114r18 115r14
+. 117r26 133r18 134r14 136r26
+52t3 city{20T13}
+53i3 consumo_Ciudad{integer} 80m5 94r33 94r57 103r40 111r32 129r35
+55i3 min_value{integer} 112m9 115r37 117m13
+56i3 min_value_index{integer} 113m9 116m13 121r12 122r42 124r21 125r28
+57i3 max_value{integer} 130m9 134r37 136m13
+58i3 max_value_index{integer} 131m9 135m13 140r12 141r42 143r21 144r28
+60i3 produccion{integer} 88m5 90m7 90r21 94r20 103r78 109r28
+61i3 produccion_esperada{integer} 109m5 111r10 123m11 123r34 129r13 142m11
+. 142r34
+63o3 tiempo_operacion{10|41O9} 69m3 76m4 76r24 77r16 157m5 157r25 158r17
+64f3 ratio{float} 94m5 95r8 97r11
+66o4 Intervalo_Resfresco{10|46O9} 157r44
+67o4 retraso_Inicio{10|46O9} 76r43
+71i7 i{integer} 72r15
+83i9 i{integer} 84r17 84r48
+89i9 i{integer} 90r51
+105i9 i{integer} 106r24
+110i9 i{integer}
+114i13 j{integer} 115r31 115r68 116r32 117r43
+133i13 j{integer} 134r31 134r68 135r32 136r43
+151i9 i{integer} 152r27 153r19
+X 19 interfac.ads
+57M9*Unsigned_32
+60M9*Unsigned_64
+X 37 s-rannum.ads
+66V13*Random{19|57M9} 38|223i21
+67V13*Random{19|60M9} 38|223i21
+

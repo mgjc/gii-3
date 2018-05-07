@@ -1,0 +1,126 @@
+V "GNAT Lib v2011"
+A -gnatA
+P SS ZX
+R vnnnnnnnnvvnnnnnnnvvnvnvnvnnvnnvnnnnvnnvnnnnvnnnnnnnnnnnnnnnnvnvnnvnv5nnnnnnnnnnnn
+
+U central%b		central.adb		a0a1367e NE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W system%s		system.ads		system.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
+W system.tasking.protected_objects.operations%s  s-tpobop.adb  s-tpobop.ali
+
+U central%s		central.ads		912ff93d EE OO PK
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.real_time%s	a-reatim.adb		a-reatim.ali
+W ada.real_time.timing_events%s  a-rttiev.adb	a-rttiev.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W system%s		system.ads		system.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.tasking%s	s-taskin.adb		s-taskin.ali
+W system.tasking.protected_objects%s  s-taprob.adb  s-taprob.ali
+W system.tasking.protected_objects.entries%s  s-tpoben.adb  s-tpoben.ali
+
+D ada.ads		20110428140902 3ffc8e18
+D a-calend.ads		20110428140858 343c83dd
+D a-caldel.ads		20110428140858 9f20b83d
+D a-except.ads		20110428140900 4759ecee
+D a-finali.ads		20110428140900 b333d305
+D a-fihema.ads		20110428140900 1940728a
+D a-ioexce.ads		20110428140900 8b9de6cd
+D a-reatim.ads		20110428140902 63f07669
+D a-rttiev.ads		20110428140902 22f35a33
+D a-stream.ads		20110428140902 2ca4ee37
+D a-tags.ads		20110428140902 7b33f560
+D a-textio.ads		20110428140902 386df5d4
+D a-unccon.ads		20110428140902 f9eb8f06
+D central.ads		20180119075940 d02cd567
+D central.adb		20180119080414 48e016cd
+D interfac.ads		20110428140906 f77d8799
+D i-c.ads		20110428140906 5421119b
+D i-cstrin.ads		20110428140906 341d0ddf
+D i-cstrea.ads		20110428140906 1bd72c32
+D system.ads		20110428140910 bc164b96
+D s-atacco.ads		20110428140906 1dc856ad
+D s-crtl.ads		20110428140906 ac77b159
+D s-exctab.ads		20110428140906 66e51330
+D s-ficobl.ads		20110428140906 443b9d66
+D s-finroo.ads		20110428140906 2dd85ce2
+D s-multip.ads		20110428140908 38ac9f73
+D s-osinte.ads		20110428140908 ecf1fbfd
+D s-parame.ads		20110428140908 03aa3b01
+D s-pooglo.ads		20110428140908 542f33d0
+D s-secsta.ads		20110428140908 eea35a36
+D s-soflin.ads		20110428140908 607487c5
+D s-stache.ads		20110428140908 596fc1b4
+D s-stausa.ads		20110428140908 017a0a05
+D s-stalib.ads		20110428140908 f78bcf95
+D s-stoele.ads		20110428140908 facd7d98
+D s-stoele.adb		20110428140908 afc5dc80
+D s-stopoo.ads		20110428140908 5c51faf9
+D s-tasinf.ads		20110428140908 859198ad
+D s-taspri.ads		20110428140908 196697f7
+D s-taprop.ads		20110428140908 07f79e46
+D s-taskin.ads		20110428140908 b2eaee08
+D s-taprob.ads		20110428140908 502249e3
+D s-tpoben.ads		20110428140908 e8374469
+D s-tpobop.ads		20110428140908 5f548bb3
+D s-traent.ads		20110428140908 5221ee41
+D s-unstyp.ads		20110428140908 6ae15c76
+D s-wchcon.ads		20110428140910 bfeb2e3d
+D s-win32.ads		20110428140910 07238fa2
+X 1 ada.ads
+16K9*Ada 19e8 14|1r6 2r5 4r6 5r5 15|1r6 7r7 52r13 76r13 100r11 109r11
+X 8 a-reatim.ads
+39K13*Real_Time 139e18 14|1r10 2r9 4w10 5r9
+46O9*Time_Span 14|12r36 13r35
+80V13*To_Duration{duration} 14|8s39 9s40
+85V13*Milliseconds{46O9} 14|8s51 9s52
+87V13*Seconds{46O9} 14|12s49 13s48
+X 9 a-rttiev.ads
+38K23*Timing_Events 81e32 14|1w20 2r19
+40R9*Timing_Event 75e14 14|26r25 27r25 28r21 15|5r44 17r48 23r48
+50U14*Set_Handler 15|12s7 60s9 84s9
+58U14*Cancel_Handler 15|50s11 74s11 98s9 107s9
+X 12 a-textio.ads
+49K13*Text_IO 471e16 15|1w10 7r11 52r17 76r17 100r15 109r15
+263U14*Put_Line 15|7s19 52s25 76s25 100s23 109s23
+X 14 central.ads
+7K9*Central 30l5 30e12 15|3b14 116l5 116t12
+8o3*SENSOR_JITTER{duration} 15|39r13
+9o3*CONTROL_JITTER{duration} 15|58r15 82r15
+10i3*PRODUCC_MAX{integer} 15|44r43
+11i3*PRODUCC_MIN{integer} 15|68r43
+12o3*INTERVALO_ALERTA_MONIT{8|46O9} 15|13r19
+13o3*TIEMPO_CAMBIO_PRODUCC{8|46O9} 15|61r21 85r21
+15W18*Central 29l7 29e14 15|4b18 115l7 115t14
+16Y11 Leer_Valor 16<22 15|36b11 41l9 41t19
+16i22 value{integer} 15|40m7
+17Y11 Incremento 15|43b11 65l9 65t19
+18Y11 Decremento 15|67b11 89l9 89t19
+19Y11 mantener 15|91b11 114l9 114t17
+20Y11 inicio 15|29b11 34l9 34t15
+22i5 produccion_Actual{integer} 15|19r7 19r28 25r7 25r28 40r16 44r23 68r23
+23b5 Incremento_Sin_Aplicar{boolean} 15|20r7 48r10 63r9 73r12 79r11 106r10
+. 112r9
+24b5 Decremento_Sin_Aplicar{boolean} 15|26r7 49r12 55r11 72r10 87r9 97r10
+. 103r9
+25b5 iniciada{boolean} 15|30r10 33r7 37r10 44r10 68r10 92r10
+26r5 Evento_Incrementar{9|40R9} 15|60r21 74r26 107r24
+27r5 Evento_Decrementar{9|40R9} 15|50r26 84r21 98r24
+28r5 Evento_Monitor{9|40R9} 15|12r19
+X 15 central.adb
+5U15 Alerta_Monitor 5b15 8l9 8t23 14r19
+10U15 Restablecer_Monitor 10b15 15l9 15t28 32s7 47s7 71s7 95s7
+17U15 Llamada_Incremento 17b15 21l9 21t27 62r21
+23U15 Llamada_Decremento 23b15 27l9 27t27 86r21
+36i22 value{integer}
+45b7 cancelado{boolean} 50m46 50r46 51r14
+69b7 cancelado{boolean} 74m46 74r46 75r14
+93b7 cancelado{boolean} 98m44 98r44 99r12 107m44 107r44 108r12
+

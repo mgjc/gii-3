@@ -1,0 +1,6 @@
+project ADA is
+
+	for Main use ("final.adb");
+
+end ADA;
+
