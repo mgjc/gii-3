@@ -1,0 +1,17 @@
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo.csprojAssemblyReference.cache
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\MainWindow.g.cs
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\App.g.cs
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo_MarkupCompile.cache
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo_MarkupCompile.lref
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\bin\Debug\Trabajo.exe.config
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\bin\Debug\Trabajo.exe
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\bin\Debug\Trabajo.pdb
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\MainWindow.baml
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo.g.resources
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo.Properties.Resources.resources
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo.csproj.GenerateResource.cache
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo.csproj.CoreCompileInputs.cache
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo.exe
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Trabajo.pdb
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Window1.g.cs
+C:\Users\jcmg\source\repos\Trabajo\Trabajo\obj\Debug\Window1.baml
