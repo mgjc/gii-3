@@ -49,10 +49,26 @@
                 <TextBox Name="Nomb6" Width="50" Height="25" Margin="7" MouseDoubleClick="Nomb6_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">Nombre</TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                // https://www.wpf-tutorial.com/common-interface-controls/menu-control/
-                <Button Name="Incluye" Width="50" Height="25" Margin="7" Click="Incluye_Click">Añadir</Button>
+                <ComboBox Width="100" Height="25" Margin="7">
+
+                    <!--From here I am adding the Item in ComboBox-->
+
+                    <ComboBoxItem >Rojo</ComboBoxItem>
+
+                    <ComboBoxItem >Azul</ComboBoxItem>
+
+                    <ComboBoxItem >Naranja</ComboBoxItem>
+
+                    <ComboBoxItem >Rosa</ComboBoxItem>
+
+                    <ComboBoxItem >Verde</ComboBoxItem>
+
+                </ComboBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Name="Incluye" Width="50" Height="25" Margin="7" Click="Incluye_Click">Añadir</Button>
         </StackPanel>
+    </StackPanel>
         <StackPanel>
             
         </StackPanel>
