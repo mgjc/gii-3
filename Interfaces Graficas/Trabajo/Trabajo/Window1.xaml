@@ -5,72 +5,121 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo"
         mc:Ignorable="d"
-        Title="Funciones" Height="450" Width="800">
-    <StackPanel Orientation="Horizontal">
-        <StackPanel Orientation="Vertical">
-
-            <StackPanel Orientation="Horizontal">
-                <Button Name="Fun1C" Click="Fun1C_Click" Margin="7" Padding="6">a * sen(b*x)</Button>
-                <TextBox Name="VarA1" Width="50" Height="30" Margin="7" MouseDoubleClick="VarA1_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">a</TextBox>
-                <TextBox Name="VarB1" Width="50" Height="30" Margin="7" MouseDoubleClick="VarB1_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">b</TextBox>
-                <TextBox Name="Nomb1" Width="50" Height="25" Margin="7" MouseDoubleClick="Nomb1_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">Nombre</TextBox>
+        Title="Funciones" Height="450" Width="870">
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox Name="Funciones" Width="100" Height="25" Margin="7" SelectionChanged="Funciones_SelectionChanged">
+                        <ComboBoxItem >a*sen(b*x)</ComboBoxItem>
+                        <ComboBoxItem >a*cos(b*x)</ComboBoxItem>
+                        <ComboBoxItem >a*x^n</ComboBoxItem>
+                        <ComboBoxItem >a*x+b</ComboBoxItem>
+                        <ComboBoxItem >a*x2+b*x+c</ComboBoxItem>
+                        <ComboBoxItem >a/(b*x)</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox Name="ListaColores" Width="80" Height="25" Margin="7">
+                        <ComboBoxItem >Rojo</ComboBoxItem>
+                        <ComboBoxItem >Azul</ComboBoxItem>
+                        <ComboBoxItem >Naranja</ComboBoxItem>
+                        <ComboBoxItem >Rosa</ComboBoxItem>
+                        <ComboBoxItem >Verde</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox Name="NombreFuncion" Width="70" Height="25" Margin="7" PreviewMouseLeftButtonDown="NombreFuncion_PreviewMouseLeftButtonDown" TextAlignment="Center">Nombre</TextBox>
+                    <Button Name="Incluye" Width="50" Height="25" Margin="7" Click="Incluye_Click" HorizontalAlignment="Left" >Añadir</Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="VarA" Width="75" Height="30" Margin="7" PreviewMouseLeftButtonDown="VarA_PreviewMouseLeftButtonDown" IsEnabled="False" TextAlignment="Center">-</TextBox>
+                    <TextBox Name="VarB" Width="75" Height="30" Margin="7" PreviewMouseLeftButtonDown="VarB_PreviewMouseLeftButtonDown" IsEnabled="False" TextAlignment="Center">-</TextBox>
+                    <TextBox Name="VarC" Width="75" Height="30" Margin="7" PreviewMouseLeftButtonDown="VarC_PreviewMouseLeftButtonDown" IsEnabled="False" TextAlignment="Center">-</TextBox>
+                    <TextBox Name="Const" Width="75" Height="30" Margin="7" PreviewMouseLeftButtonDown="Const_PreviewMouseLeftButtonDown" IsEnabled="False" TextAlignment="Center">-</TextBox>
+                </StackPanel>
+                <Button Visibility="Hidden" Width="75" Height="30"></Button>
+                <Button Visibility="Hidden" Width="75" Height="30"></Button>
+                <Label Name="CambiaValores" Visibility="Collapsed" Height="30">Cambia los valores para la funcion seleccionada</Label>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="CambiaA" Margin="7" Width="50" Height="30" Visibility="Collapsed" TextAlignment="Center">
+                        <TextBox.ToolTip>
+                            <ToolTip>Variable A</ToolTip>
+                        </TextBox.ToolTip>
+                    -</TextBox>
+                    <TextBox Name="CambiaB" Margin="7" Width="50" Height="30" Visibility="Collapsed" TextAlignment="Center">
+                        <TextBox.ToolTip>
+                            <ToolTip>Variable B</ToolTip>
+                        </TextBox.ToolTip>
+                    -</TextBox>
+                    <TextBox Name="CambiaC" Margin="7" Width="50" Height="30" Visibility="Collapsed" TextAlignment="Center">
+                        <TextBox.ToolTip>
+                            <ToolTip>Variable C</ToolTip>
+                        </TextBox.ToolTip>
+                    -</TextBox>
+                    <TextBox Name="CambiaConst" Margin="7" Width="50" Height="30" Visibility="Collapsed" TextAlignment="Center">
+                        <TextBox.ToolTip>
+                            <ToolTip>Constante</ToolTip>
+                        </TextBox.ToolTip>
+                    -</TextBox>
+                    <TextBox Name="CambiaXMAX" Width="50" Height="30" Margin="7" Visibility="Collapsed" TextAlignment="Center">
+                        <TextBox.ToolTip>
+                            <ToolTip>Valor Máx. X</ToolTip>
+                        </TextBox.ToolTip>
+                    </TextBox>
+                    <TextBox Name="CambiaXmin" Width="50" Height="30" Margin="7" Visibility="Collapsed" TextAlignment="Center">
+                        <TextBox.ToolTip>
+                            <ToolTip>Valor Min. X</ToolTip>
+                        </TextBox.ToolTip>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="GuardaCambios" Visibility="Collapsed" Width="100" Height="30" Margin="7" Click="GuardaCambios_Click">Guardar cambios</Button>
+                </StackPanel>
             </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <ListView Name="tabla" Margin="7" SelectionChanged="Tabla_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="75">
+                                
+                            </GridViewColumn>
+                            <GridViewColumn Header="Expresion" DisplayMemberBinding="{Binding Expresion}" Width="95">
 
-            <StackPanel Orientation="Horizontal">
-                <Button Name="Fun2C" Click="Fun2C_Click" Margin="7" Padding="6">a * cos(b*x)</Button>
-                <TextBox Name="VarA2" Width="50" Height="30" Margin="7" MouseDoubleClick="VarA2_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">a</TextBox>
-                <TextBox Name="VarB2" Width="50" Height="30" Margin="7" MouseDoubleClick="VarB2_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">b</TextBox>
-                <TextBox Name="Nomb2" Width="50" Height="25" Margin="7" MouseDoubleClick="Nomb2_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">Nombre</TextBox>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Color" DisplayMemberBinding="{Binding Color}" Width="75">
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="X min" DisplayMemberBinding="{Binding EjeXMin}" Width="40">
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="X max" DisplayMemberBinding="{Binding EjeXMax}" Width="40">
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="A" DisplayMemberBinding="{Binding A}" Width="35">
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="B" DisplayMemberBinding="{Binding B}" Width="35">
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="C" DisplayMemberBinding="{Binding C}" Width="35">
+
+                            </GridViewColumn>
+                            <GridViewColumn Header="Const" DisplayMemberBinding="{Binding Const}" Width="40">
+
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel>
+                        <Button Name="MeteAGrafica" Click="MeteAGrafica_Click" Width="70" Margin="7" Visibility="Collapsed">Añadir</Button>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Name="ModificaFuncion" Click="ModificaFuncion_Click" Width="70" Margin="7" Visibility="Collapsed">Modificar</Button>
+                    </StackPanel>
+                    
+                    <StackPanel>
+                        <Button Name="EliminarDeGrafica" Click="EliminarDeGrafica_Click" Width="70" Margin="7" Visibility="Collapsed">Eliminar</Button>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Button Name="Fun3C" Click="Fun3C_Click" Margin="7" Padding="6">a*x^n</Button>
-                <TextBox Name="VarA3" Width="50" Height="30" Margin="7" MouseDoubleClick="VarA3_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">a</TextBox>
-                <TextBox Name="VarB3" Width="50" Height="30" Margin="7" MouseDoubleClick="VarB3_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">b</TextBox>
-                <TextBox Name="Nomb3" Width="50" Height="25" Margin="7" MouseDoubleClick="Nomb3_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">Nombre</TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Name="Fun4C" Click="Fun4C_Click" Margin="7" Padding="6">a*x +b</Button>
-                <TextBox Name="VarA4" Width="50" Height="30" Margin="7" MouseDoubleClick="VarA4_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">a</TextBox>
-                <TextBox Name="VarB4" Width="50" Height="30" Margin="7" MouseDoubleClick="VarB4_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">b</TextBox>
-                <TextBox Name="Nomb4" Width="50" Height="25" Margin="7" MouseDoubleClick="Nomb4_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">Nombre</TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Name="Fun5C" Click="Fun5C_Click" Margin="7" Padding="6">a*x2+b*x+c</Button>
-                <TextBox Name="VarA5" Width="50" Height="30" Margin="7" MouseDoubleClick="VarA5_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">a</TextBox>
-                <TextBox Name="VarB5" Width="50" Height="30" Margin="7" MouseDoubleClick="VarB5_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">b</TextBox>
-                <TextBox Name="VarC5" Width="50" Height="30" Margin="7" MouseDoubleClick="VarC5_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">c</TextBox>
-                <TextBox Name="Nomb5" Width="50" Height="25" Margin="7" MouseDoubleClick="Nomb5_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">Nombre</TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Name="Fun6C" Click="Fun6C_Click" Margin="7" Padding="6">a/(b*x)</Button>
-                <TextBox Name="VarA6" Width="50" Height="30" Margin="7" MouseDoubleClick="VarA6_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">a</TextBox>
-                <TextBox Name="VarB6" Width="50" Height="25" Margin="7" MouseDoubleClick="VarB6_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">b</TextBox>
-                <TextBox Name="Nomb6" Width="50" Height="25" Margin="7" MouseDoubleClick="Nomb6_MouseDoubleClick" Visibility="Hidden" TextAlignment="Center">Nombre</TextBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox Width="100" Height="25" Margin="7">
-
-                    <!--From here I am adding the Item in ComboBox-->
-
-                    <ComboBoxItem >Rojo</ComboBoxItem>
-
-                    <ComboBoxItem >Azul</ComboBoxItem>
-
-                    <ComboBoxItem >Naranja</ComboBoxItem>
-
-                    <ComboBoxItem >Rosa</ComboBoxItem>
-
-                    <ComboBoxItem >Verde</ComboBoxItem>
-
-                </ComboBox>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Name="Incluye" Width="50" Height="25" Margin="7" Click="Incluye_Click">Añadir</Button>
         </StackPanel>
-    </StackPanel>
-        <StackPanel>
-            
-        </StackPanel>
-    </StackPanel>
+    </ScrollViewer>
 </Window>
