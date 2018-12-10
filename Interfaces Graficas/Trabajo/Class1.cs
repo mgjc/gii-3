@@ -13,7 +13,7 @@ namespace Trabajo
         public void AñadirFuncion(Tabla t, object sender, RoutedEventArgs e)
         {
             Funciones.Add(t);
-            PintaFunciones(sender, e);
+            PintaFunciones(this, e);
         }
         public void EliminarFuncion(string nombre, object sender, RoutedEventArgs e)
         {
@@ -23,7 +23,7 @@ namespace Trabajo
                 {
                     Funciones.RemoveAt(i);
                     funcionEliminada = nombre;
-                    DespintaFunciones(sender, e);
+                    DespintaFunciones(this, e);
                     break;
                 }
             }

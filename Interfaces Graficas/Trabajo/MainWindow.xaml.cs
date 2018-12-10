@@ -42,6 +42,35 @@ namespace Trabajo
             else
                 lienzo.Children.Clear();
         }
+
+        private PointCollection EjesX()
+        {
+            int ancho = (int)lienzo.ActualWidth;
+            int alto = (int)lienzo.ActualHeight;
+            PointCollection puntos = new PointCollection();
+
+            for (int i = 0; i < ancho; i++)
+            {
+                Point pt = new Point(i, alto/2);
+                puntos.Add(pt);
+
+            }
+            return puntos;
+        }
+        private PointCollection EjesY(float xmax, float xmin)
+        {
+            int ancho = (int)lienzo.ActualWidth;
+            int alto = (int)lienzo.ActualHeight;
+            PointCollection puntos = new PointCollection();
+            if (xmin >= 0) return puntos;
+            for (int i = 0; i < alto; i++)
+            {
+                Point pt = new Point((ancho*(-xmin))/(xmax-xmin), i);
+                puntos.Add(pt);
+
+            }
+            return puntos;
+        }
         private void Pintar(object sender, RoutedEventArgs e)
         {
             ListaFunciones = modelo.ObtenerFunciones();
@@ -77,6 +106,8 @@ namespace Trabajo
                 double sumaizquierda=0;
                 PointCollection puntos = new PointCollection();
                 double ypantmax = (double)lienzo.ActualHeight;
+
+
                 if (x.Expresion.Equals("a*sen(b*x)"))
                 {
                     porcentaje = ancho / (tempM-tempm);
@@ -112,7 +143,7 @@ namespace Trabajo
                     if (sumaizquierda < 0) sumaizquierda *= -1;
 
                     float xminreal = (float)topemin, xmaxreal = (float)topeMAX;
-                    float yminreal = (float)topemin, ymaxreal = (float)topeMAX;
+                    float yminreal = -4, ymaxreal = 4;
                     float xreal, yreal, xpant, ypant;
                     float xpantmax=num_puntos, xpantmin=0;
                     float ypantmin=0;
@@ -136,7 +167,7 @@ namespace Trabajo
                     if (sumaizquierda < 0) sumaizquierda *= -1;
 
                     float xminreal = (float)topemin, xmaxreal = (float)topeMAX;
-                    float yminreal = (float)topemin, ymaxreal = (float)topeMAX;
+                    float yminreal = -4, ymaxreal = 4;
                     float xreal, yreal, xpant, ypant;
                     float xpantmax = num_puntos, xpantmin = 0;
                     float ypantmin = 0;
@@ -160,7 +191,7 @@ namespace Trabajo
                     if (sumaizquierda < 0) sumaizquierda *= -1;
 
                     float xminreal = (float)topemin, xmaxreal = (float)topeMAX;
-                    float yminreal = (float)topemin, ymaxreal = (float)topeMAX;
+                    float yminreal = -4, ymaxreal = 4;
                     float xreal, yreal, xpant, ypant;
                     float xpantmax = num_puntos, xpantmin = 0;
                     float ypantmin = 0;
@@ -184,7 +215,7 @@ namespace Trabajo
                     if (sumaizquierda < 0) sumaizquierda *= -1;
 
                     float xminreal = (float)topemin, xmaxreal = (float)topeMAX;
-                    float yminreal = (float)topemin, ymaxreal = (float)topeMAX;
+                    float yminreal = -4, ymaxreal = 4;
                     float xreal, yreal, xpant, ypant;
                     float xpantmax = num_puntos, xpantmin = 0;
                     float ypantmin = 0;
@@ -208,6 +239,23 @@ namespace Trabajo
                 p.StrokeThickness = 1;
                 lienzo.Children.Add(p);
             }
+
+            Polyline ejeX = new Polyline
+            {
+                Points = EjesX(),
+                Stroke = Brushes.Black,
+                StrokeThickness = 1.5
+            };
+            lienzo.Children.Add(ejeX);
+
+
+            Polyline ejeY = new Polyline
+            {
+                Points = EjesY((float)tempM, (float)tempm),
+                Stroke = Brushes.Black,
+                StrokeThickness = 1.5
+            };
+            lienzo.Children.Add(ejeY);
         }
         private void EliminaFuncionesRepetidas()
         {

@@ -55,7 +55,7 @@ namespace Trabajo
             }
 
             nombres.Add(NombreFuncion.Text);
-            tabla.Items.Add(new Tabla(NombreFuncion.Text, Funciones.Text, ListaColores.Text,"","",VarA.Text,VarB.Text,VarC.Text,Const.Text) { Nombre = NombreFuncion.Text , Expresion = Funciones.Text, Color = ListaColores.Text, EjeXMax="", EjeXMin="", A = VarA.Text, B = VarB.Text, C = VarC.Text, Const= Const.Text });
+            tabla.Items.Add(new Tabla(NombreFuncion.Text, Funciones.Text, ListaColores.Text,"1","-1",VarA.Text,VarB.Text,VarC.Text,Const.Text) { Nombre = NombreFuncion.Text , Expresion = Funciones.Text, Color = ListaColores.Text, EjeXMax="1", EjeXMin="-1", A = VarA.Text, B = VarB.Text, C = VarC.Text, Const= Const.Text });
         }
         
         private void Funciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -136,31 +136,17 @@ namespace Trabajo
         private void MeteAGrafica_Click(object sender, RoutedEventArgs e)
         {
             Tabla t;
-            int i;
-            string verifica = "^[-0-9]";
 
             t = (Tabla)tabla.SelectedItem;
             nombreActual = t.Nombre;
-            for (i = 0; i < tabla.Items.Count; i++)
+            
+            if (t.Expresion.Equals("a/(b*x)") && int.Parse(t.B)==0)
             {
-                t = (Tabla)tabla.Items[i];
-                if (t.Nombre.Equals(nombreActual))
-                {
-                    if (!Regex.IsMatch(t.EjeXMax, verifica) || !Regex.IsMatch(t.EjeXMin, verifica))
-                    {
-                        MessageBox.Show("Falta introducir un parametro");
-                        return;
-                    }
-                    if (t.Expresion.Equals("a/(b*x)") && int.Parse(t.B)==0)
-                    {
-                        MessageBox.Show("No puedes dividir entre 0");
-                        return;
-                    }
-                    obj.AñadirFuncion(t, sender, e);
-                    break;
-                }
-
+                MessageBox.Show("No puedes dividir entre 0");
+                return;
             }
+            obj.AñadirFuncion(t, sender, e);
+
             if (tabla.Items.Count > 1)
             {
                 CambiaA.Visibility = Visibility.Collapsed;
