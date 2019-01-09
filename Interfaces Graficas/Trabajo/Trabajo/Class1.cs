@@ -9,7 +9,7 @@ namespace Trabajo
         string funcionEliminada = "";
         public event RoutedEventHandler EliminarEventHandler;
         public event RoutedEventHandler AgregarEventHandler;
-        
+
         public void AñadirFuncion(Tabla t, object sender, RoutedEventArgs e)
         {
             Funciones.Add(t);
@@ -17,7 +17,7 @@ namespace Trabajo
         }
         public void EliminarFuncion(string nombre, object sender, RoutedEventArgs e)
         {
-            for(int i = 0; i < Funciones.Count; i++)
+            for (int i = 0; i < Funciones.Count; i++)
             {
                 if (Funciones[i].Nombre.Equals(nombre))
                 {
@@ -38,18 +38,17 @@ namespace Trabajo
                     break;
                 }
             }
-            Funciones.Add(t);
         }
         public int PintaFunciones(object sender, RoutedEventArgs e)
         {
 
-            AgregarEventHandler?.Invoke(sender, e);
+            AgregarEventHandler?.Invoke(this, e);
             return 0;
         }
         public int DespintaFunciones(object sender, RoutedEventArgs e)
         {
 
-            EliminarEventHandler?.Invoke(sender, e);
+            EliminarEventHandler?.Invoke(this, e);
             return 0;
         }
         public List<Tabla> ObtenerFunciones()

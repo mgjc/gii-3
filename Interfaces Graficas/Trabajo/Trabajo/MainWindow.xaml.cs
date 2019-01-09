@@ -30,15 +30,15 @@ namespace Trabajo
                 MessageBox.Show("Error al eliminar la funcion");
                 return;
             }
-            for(int i = 0; i < ListaFunciones.Count; i++)
+            for (int i = 0; i < ListaFunciones.Count; i++)
             {
                 if (ListaFunciones[i].Nombre.Equals(nombre))
                 {
                     ListaFunciones.RemoveAt(i);
                 }
             }
-            if (ListaFunciones.Count!=0)
-                Pintar(sender,e);
+            if (ListaFunciones.Count != 0)
+                Pintar(sender, e);
             else
                 lienzo.Children.Clear();
         }
@@ -51,7 +51,7 @@ namespace Trabajo
 
             for (int i = 0; i < ancho; i++)
             {
-                Point pt = new Point(i, alto/2);
+                Point pt = new Point(i, alto / 2);
                 puntos.Add(pt);
 
             }
@@ -65,7 +65,7 @@ namespace Trabajo
             if (xmin >= 0) return puntos;
             for (int i = 0; i < alto; i++)
             {
-                Point pt = new Point((ancho*(-xmin))/(xmax-xmin), i);
+                Point pt = new Point((ancho * (-xmin)) / (xmax - xmin), i);
                 puntos.Add(pt);
 
             }
@@ -74,10 +74,10 @@ namespace Trabajo
         private void Pintar(object sender, RoutedEventArgs e)
         {
             ListaFunciones = modelo.ObtenerFunciones();
-            double topeMAX, topemin, tempM,tempm;
+            double topeMAX, topemin, tempM, tempm;
             EliminaFuncionesRepetidas();
             lienzo.Children.Clear();
-            if (ListaFunciones.Count==0) return;
+            if (ListaFunciones.Count == 0) return;
             Tabla x = ListaFunciones[0];
             topeMAX = double.Parse(x.EjeXMax);
             topemin = double.Parse(x.EjeXMin);
@@ -103,25 +103,12 @@ namespace Trabajo
                 Polyline p = new Polyline();
                 double porcentaje;
                 double restaderecha;
-                double sumaizquierda=0;
+                double sumaizquierda = 0;
                 PointCollection puntos = new PointCollection();
                 double ypantmax = (double)lienzo.ActualHeight;
 
 
-                if (x.Expresion.Equals("a*sen(b*x)"))
-                {
-                    porcentaje = ancho / (tempM-tempm);
-                    restaderecha = ancho + (topemin*porcentaje);
-                    num_puntos = (int)(topeMAX * porcentaje - topemin * porcentaje);
-                    if(topemin!=tempm) sumaizquierda =porcentaje*(tempm-topemin);
-                    if (sumaizquierda < 0) sumaizquierda *= -1;
-                    for (int i = 0; i < num_puntos; i++)
-                    {
-                        Point pt = new Point(i+sumaizquierda,ypantmax*float.Parse(x.A)*(Math.Sin(i * float.Parse(x.B) / porcentaje) + 2) / 4);
-                        puntos.Add(pt);
-                    }
-                }
-                if (x.Expresion.Equals("a*cos(b*x)"))
+                if (x.Expresion.Equals("a*sen(b*x)") || x.Expresion.Equals("a*cos(b*x)"))
                 {
                     porcentaje = ancho / (tempM - tempm);
                     restaderecha = ancho + (topemin * porcentaje);
@@ -130,84 +117,11 @@ namespace Trabajo
                     if (sumaizquierda < 0) sumaizquierda *= -1;
                     for (int i = 0; i < num_puntos; i++)
                     {
-                        Point pt = new Point(i + sumaizquierda, ypantmax * float.Parse(x.A) * (Math.Cos((i * float.Parse(x.B)) / porcentaje) + 2) / 4);
+                        Point pt = new Point(i + sumaizquierda, ypantmax * x.CalculaX(i));
                         puntos.Add(pt);
                     }
                 }
-                if (x.Expresion.Equals("a*x^n"))
-                {
-                    porcentaje = ancho / (tempM - tempm);
-                    restaderecha = ancho + (topemin * porcentaje);
-                    num_puntos = (int)(topeMAX * porcentaje - topemin * porcentaje);
-                    if (topemin != tempm) sumaizquierda = porcentaje * (tempm - topemin);
-                    if (sumaizquierda < 0) sumaizquierda *= -1;
-
-                    float xminreal = (float)topemin, xmaxreal = (float)topeMAX;
-                    float yminreal = -4, ymaxreal = 4;
-                    float xreal, yreal, xpant, ypant;
-                    float xpantmax=num_puntos, xpantmin=0;
-                    float ypantmin=0;
-                    for (int i = 0; i < num_puntos; i++)
-                    {
-                        xreal = xminreal + i * (xmaxreal - xminreal) / num_puntos;
-                        yreal = float.Parse(x.A)* (float)Math.Pow((double)xreal,double.Parse(x.Const));
-                        xpant = (xpantmax - xpantmin) * (xreal - xminreal) / (xmaxreal - xminreal) + xpantmin + (float)sumaizquierda;
-                        ypant = (ypantmin - (float)ypantmax) * (yreal - yminreal) / (ymaxreal - yminreal) + (float)ypantmax;
-                        Point pt = new Point(xpant, ypant);
-                        puntos.Add(pt);
-
-                    }
-                }
-                if (x.Expresion.Equals("a*x+b"))
-                {
-                    porcentaje = ancho / (tempM - tempm);
-                    restaderecha = ancho + (topemin * porcentaje);
-                    num_puntos = (int)(topeMAX * porcentaje - topemin * porcentaje);
-                    if (topemin != tempm) sumaizquierda = porcentaje * (tempm - topemin);
-                    if (sumaizquierda < 0) sumaizquierda *= -1;
-
-                    float xminreal = (float)topemin, xmaxreal = (float)topeMAX;
-                    float yminreal = -4, ymaxreal = 4;
-                    float xreal, yreal, xpant, ypant;
-                    float xpantmax = num_puntos, xpantmin = 0;
-                    float ypantmin = 0;
-                    for (int i = 0; i < num_puntos; i++)
-                    {
-                        xreal = xminreal + i * (xmaxreal - xminreal) / num_puntos;
-                        yreal = float.Parse(x.A) * xreal + float.Parse(x.B);
-                        xpant = (xpantmax - xpantmin) * (xreal - xminreal) / (xmaxreal - xminreal) + xpantmin + (float)sumaizquierda;
-                        ypant = (ypantmin - (float)ypantmax) * (yreal - yminreal) / (ymaxreal - yminreal) + (float)ypantmax;
-                        Point pt = new Point(xpant, ypant);
-                        puntos.Add(pt);
-
-                    }
-                }
-                if (x.Expresion.Equals("a*x2+b*x+c"))
-                {
-                    porcentaje = ancho / (tempM - tempm);
-                    restaderecha = ancho + (topemin * porcentaje);
-                    num_puntos = (int)(topeMAX * porcentaje - topemin * porcentaje);
-                    if (topemin != tempm) sumaizquierda = porcentaje * (tempm - topemin);
-                    if (sumaizquierda < 0) sumaizquierda *= -1;
-
-                    float xminreal = (float)topemin, xmaxreal = (float)topeMAX;
-                    float yminreal = -4, ymaxreal = 4;
-                    float xreal, yreal, xpant, ypant;
-                    float xpantmax = num_puntos, xpantmin = 0;
-                    float ypantmin = 0;
-                    for (int i = 0; i < num_puntos; i++)
-                    {
-                        xreal = xminreal + i * (xmaxreal - xminreal) / num_puntos;
-                        yreal = float.Parse(x.A) * xreal* xreal + float.Parse(x.B)*xreal+float.Parse(x.C);
-                        xpant = (xpantmax - xpantmin) * (xreal - xminreal) / (xmaxreal - xminreal) + xpantmin + (float)sumaizquierda;
-                        ypant = (ypantmin - (float)ypantmax) * (yreal - yminreal) / (ymaxreal - yminreal) + (float)ypantmax + (float)ypantmax / 2;
-                        Point pt = new Point(xpant, ypant);
-                        puntos.Add(pt);
-
-                    }
-                }
-                if (x.Expresion.Equals("a/(b*x)")) {
-
+                else {
                     porcentaje = ancho / (tempM - tempm);
                     restaderecha = ancho + (topemin * porcentaje);
                     num_puntos = (int)(topeMAX * porcentaje - topemin * porcentaje);
@@ -222,7 +136,7 @@ namespace Trabajo
                     for (int i = 1; i < num_puntos; i++)
                     {
                         xreal = xminreal + i * (xmaxreal - xminreal) / num_puntos;
-                        yreal = float.Parse(x.A) / (xreal * float.Parse(x.B));
+                        yreal = x.CalculaX(xreal);
                         xpant = (xpantmax - xpantmin) * (xreal - xminreal) / (xmaxreal - xminreal) + xpantmin + (float)sumaizquierda;
                         ypant = (ypantmin - (float)ypantmax) * (yreal - yminreal) / (ymaxreal - yminreal) + (float)ypantmax;
                         Point pt = new Point(xpant, ypant);
@@ -231,10 +145,10 @@ namespace Trabajo
                     }
                 }
                 if (x.Color.Equals("Rojo")) p.Stroke = Brushes.Red;
-                if (x.Color.Equals("Azul"))p.Stroke = Brushes.Blue;
-                if (x.Color.Equals("Naranja"))p.Stroke = Brushes.Orange;
-                if (x.Color.Equals("Rosa"))p.Stroke = Brushes.Pink;
-                if(x.Color.Equals("Verde"))p.Stroke = Brushes.Green;
+                if (x.Color.Equals("Azul")) p.Stroke = Brushes.Blue;
+                if (x.Color.Equals("Naranja")) p.Stroke = Brushes.Orange;
+                if (x.Color.Equals("Rosa")) p.Stroke = Brushes.Pink;
+                if (x.Color.Equals("Verde")) p.Stroke = Brushes.Green;
                 p.Points = puntos;
                 p.StrokeThickness = 1;
                 lienzo.Children.Add(p);
@@ -261,10 +175,10 @@ namespace Trabajo
         {
             List<string> temp = new List<string>();
             List<int> indices = new List<int>();
-            for(int i = 0; i < ListaFunciones.Count; i++)
+            for (int i = 0; i < ListaFunciones.Count; i++)
             {
                 temp.Add(ListaFunciones[i].Nombre);
-                for(int j=0; j < i; j++)
+                for (int j = 0; j < i; j++)
                 {
                     if (temp[j].Equals(ListaFunciones[i].Nombre))
                     {
@@ -276,11 +190,6 @@ namespace Trabajo
             {
                 ListaFunciones.RemoveAt(indices[i]);
             }
-        }
-        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-            RoutedEventArgs p = new RoutedEventArgs();
-            Pintar(sender, p);
         }
 
         private void Window_Closed(object sender, EventArgs e)

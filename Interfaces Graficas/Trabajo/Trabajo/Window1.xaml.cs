@@ -3,19 +3,21 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
+using System;
+
 namespace Trabajo
 {
 
     public partial class Window1 : Window
     {
-        List<string>nombres= new List<string>();
+        List<string> nombres = new List<string>();
         string nombreActual = "";
         Class1 obj;
 
         public Window1(object modelo)
         {
             InitializeComponent();
-            obj = (Class1) modelo;
+            obj = (Class1)modelo;
         }
 
         private void Incluye_Click(object sender, RoutedEventArgs e)
@@ -55,9 +57,9 @@ namespace Trabajo
             }
 
             nombres.Add(NombreFuncion.Text);
-            tabla.Items.Add(new Tabla(NombreFuncion.Text, Funciones.Text, ListaColores.Text,"1","-1",VarA.Text,VarB.Text,VarC.Text,Const.Text) { Nombre = NombreFuncion.Text , Expresion = Funciones.Text, Color = ListaColores.Text, EjeXMax="1", EjeXMin="-1", A = VarA.Text, B = VarB.Text, C = VarC.Text, Const= Const.Text });
+            tabla.Items.Add(new Tabla(NombreFuncion.Text, Funciones.Text, ListaColores.Text, "10", "-10", VarA.Text, VarB.Text, VarC.Text, Const.Text) { Nombre = NombreFuncion.Text, Expresion = Funciones.Text, Color = ListaColores.Text, EjeXMax = "10", EjeXMin = "-10", A = VarA.Text, B = VarB.Text, C = VarC.Text, Const = Const.Text });
         }
-        
+
         private void Funciones_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             NombreFuncion.Text = "Nombre";
@@ -67,11 +69,11 @@ namespace Trabajo
             switch (Funciones.SelectedIndex)
             {
                 case 2:
-                    
+
                     VarB.Text = "-";
                     VarC.Text = "-";
                     Const.Text = "n";
-                    
+
                     Const.IsEnabled = true;
                     VarB.IsEnabled = false;
                     VarC.IsEnabled = false;
@@ -135,31 +137,33 @@ namespace Trabajo
 
         private void MeteAGrafica_Click(object sender, RoutedEventArgs e)
         {
-            Tabla t;
-
-            t = (Tabla)tabla.SelectedItem;
-            nombreActual = t.Nombre;
-            
-            if (t.Expresion.Equals("a/(b*x)") && int.Parse(t.B)==0)
+            if (tabla.SelectedItems.Count > 0)
             {
-                MessageBox.Show("No puedes dividir entre 0");
-                return;
-            }
-            obj.AñadirFuncion(t, sender, e);
+                Tabla t;
+                t = (Tabla)tabla.SelectedItem;
+                nombreActual = t.Nombre;
 
-            if (tabla.Items.Count > 1)
-            {
-                CambiaA.Visibility = Visibility.Collapsed;
-                CambiaB.Visibility = Visibility.Collapsed;
-                CambiaC.Visibility = Visibility.Collapsed;
-                CambiaConst.Visibility = Visibility.Collapsed;
-                CambiaXMAX.Visibility = Visibility.Collapsed;
-                CambiaXmin.Visibility = Visibility.Collapsed;
-                CambiaValores.Visibility = Visibility.Collapsed;
-                GuardaCambios.Visibility = Visibility.Collapsed;
-                MeteAGrafica.Visibility = Visibility.Collapsed;
-                EliminarDeGrafica.Visibility = Visibility.Collapsed;
-                ModificaFuncion.Visibility = Visibility.Collapsed;
+                if (t.Expresion.Equals("a/(b*x)") && int.Parse(t.B) == 0)
+                {
+                    MessageBox.Show("No puedes dividir entre 0");
+                    return;
+                }
+                obj.AñadirFuncion(t, sender, e);
+
+                if (tabla.Items.Count > 1)
+                {
+                    CambiaA.Visibility = Visibility.Collapsed;
+                    CambiaB.Visibility = Visibility.Collapsed;
+                    CambiaC.Visibility = Visibility.Collapsed;
+                    CambiaConst.Visibility = Visibility.Collapsed;
+                    CambiaXMAX.Visibility = Visibility.Collapsed;
+                    CambiaXmin.Visibility = Visibility.Collapsed;
+                    CambiaValores.Visibility = Visibility.Collapsed;
+                    GuardaCambios.Visibility = Visibility.Collapsed;
+                    MeteAGrafica.Visibility = Visibility.Collapsed;
+                    EliminarDeGrafica.Visibility = Visibility.Collapsed;
+                    ModificaFuncion.Visibility = Visibility.Collapsed;
+                }
             }
         }
 
@@ -226,7 +230,7 @@ namespace Trabajo
 
             }
             x = (Tabla)tabla.Items[i];
-            for (int j=0; j < nombres.Count; j++)
+            for (int j = 0; j < nombres.Count; j++)
             {
                 if (nombres[j].Equals(x.Nombre))
                 {
@@ -255,29 +259,29 @@ namespace Trabajo
             Tabla t = (Tabla)tabla.SelectedItem;
             Tabla x;
             int i;
-            for ( i = 0; i < tabla.Items.Count; i++)
+            for (i = 0; i < tabla.Items.Count; i++)
             {
-                x = (Tabla) tabla.Items[i];
+                x = (Tabla)tabla.Items[i];
                 if (x.Nombre.Equals(nombreActual))
                 {
                     break;
                 }
-                    
+
             }
-            if (!Regex.IsMatch(CambiaA.Text, verifica) || (!Regex.IsMatch(CambiaB.Text, verifica) && (CambiaB.Visibility==Visibility.Visible)) || (!Regex.IsMatch(CambiaC.Text, verifica) && (CambiaC.Visibility==Visibility.Visible)) || (!Regex.IsMatch(CambiaConst.Text, verifica) && (CambiaConst.Visibility==Visibility.Visible)) || (!Regex.IsMatch(CambiaXmin.Text, verifica)) || (!Regex.IsMatch(CambiaXMAX.Text, verifica)) || string.IsNullOrEmpty(CambiaXMAX.Text)|| string.IsNullOrEmpty(CambiaXmin.Text))
+            if (!Regex.IsMatch(CambiaA.Text, verifica) || (!Regex.IsMatch(CambiaB.Text, verifica) && (CambiaB.Visibility == Visibility.Visible)) || (!Regex.IsMatch(CambiaC.Text, verifica) && (CambiaC.Visibility == Visibility.Visible)) || (!Regex.IsMatch(CambiaConst.Text, verifica) && (CambiaConst.Visibility == Visibility.Visible)) || (!Regex.IsMatch(CambiaXmin.Text, verifica)) || (!Regex.IsMatch(CambiaXMAX.Text, verifica)) || string.IsNullOrEmpty(CambiaXMAX.Text) || string.IsNullOrEmpty(CambiaXmin.Text))
             {
                 MessageBox.Show("Falta introducir un parametro");
                 return;
             }
             double q = double.Parse(CambiaXmin.Text);
             double w = double.Parse(CambiaXMAX.Text);
-            if ( w < q)
+            if (w < q)
             {
-                string z="";
+                string z = "";
                 z = CambiaXmin.Text;
-                CambiaXmin.Text= CambiaXMAX.Text;
+                CambiaXmin.Text = CambiaXMAX.Text;
                 CambiaXMAX.Text = z;
-                
+
             }
             tabla.Items.RemoveAt(i);
             t.EjeXMax = CambiaXMAX.Text;
@@ -299,8 +303,7 @@ namespace Trabajo
                     CambiaConst.Text = "-";
                 }
             }
-            tabla.Items.Add(new Tabla(t.Nombre, t.Expresion, t.Color, t.EjeXMax, t.EjeXMin, CambiaA.Text, CambiaB.Text, CambiaC.Text, CambiaConst.Text) { Nombre = t.Nombre, Expresion = t.Expresion, Color = t.Color, EjeXMax = t.EjeXMax, EjeXMin = t.EjeXMin, A = CambiaA.Text, B = CambiaB.Text, C = CambiaC.Text, Const = CambiaConst.Text });
-
+            nombreActual = "";
             CambiaA.Visibility = Visibility.Collapsed;
             CambiaB.Visibility = Visibility.Collapsed;
             CambiaC.Visibility = Visibility.Collapsed;
@@ -313,6 +316,7 @@ namespace Trabajo
             EliminarDeGrafica.Visibility = Visibility.Collapsed;
             ModificaFuncion.Visibility = Visibility.Collapsed;
             obj.ModificarFuncion(t, sender, e);
+            tabla.Items.Add(new Tabla(t.Nombre, t.Expresion, t.Color, t.EjeXMax, t.EjeXMin, CambiaA.Text, CambiaB.Text, CambiaC.Text, CambiaConst.Text) { Nombre = t.Nombre, Expresion = t.Expresion, Color = t.Color, EjeXMax = t.EjeXMax, EjeXMin = t.EjeXMin, A = CambiaA.Text, B = CambiaB.Text, C = CambiaC.Text, Const = CambiaConst.Text });
 
         }
     }
@@ -340,5 +344,26 @@ class Tabla
         B = b;
         C = c;
         Const = cte;
+
+        
+    }
+    public float CalculaX(float x)
+    {
+
+        if (Expresion.Equals("a*sen(b*x)"))
+            return float.Parse(A) * (float)(Math.Sin(x * float.Parse(B)) + 4) / 8;
+        if (Expresion.Equals("a*cos(b*x)"))
+            return float.Parse(A) * (float)(Math.Cos(x * float.Parse(B)) + 4) / 8;
+        if (Expresion.Equals("a*x^n"))
+            return float.Parse(A) * (float)Math.Pow((double)x, double.Parse(Const));
+        if (Expresion.Equals("a*x+b"))
+            return float.Parse(A) * x + float.Parse(B);
+        if (Expresion.Equals("a*x2+b*x+c"))
+            return float.Parse(A) * x * x + float.Parse(B) * x + float.Parse(C);
+        if (Expresion.Equals("a/(b*x)"))
+            if (x == 0) return 0;
+        else
+            return float.Parse(A) / (x * float.Parse(B));
+        return 0;
     }
 }

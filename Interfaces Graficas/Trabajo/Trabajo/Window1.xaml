@@ -42,22 +42,26 @@
                         <TextBox.ToolTip>
                             <ToolTip>Variable A</ToolTip>
                         </TextBox.ToolTip>
-                    -</TextBox>
+                        -
+                    </TextBox>
                     <TextBox Name="CambiaB" Margin="7" Width="50" Height="30" Visibility="Collapsed" TextAlignment="Center">
                         <TextBox.ToolTip>
                             <ToolTip>Variable B</ToolTip>
                         </TextBox.ToolTip>
-                    -</TextBox>
+                        -
+                    </TextBox>
                     <TextBox Name="CambiaC" Margin="7" Width="50" Height="30" Visibility="Collapsed" TextAlignment="Center">
                         <TextBox.ToolTip>
                             <ToolTip>Variable C</ToolTip>
                         </TextBox.ToolTip>
-                    -</TextBox>
+                        -
+                    </TextBox>
                     <TextBox Name="CambiaConst" Margin="7" Width="50" Height="30" Visibility="Collapsed" TextAlignment="Center">
                         <TextBox.ToolTip>
                             <ToolTip>Constante</ToolTip>
                         </TextBox.ToolTip>
-                    -</TextBox>
+                        -
+                    </TextBox>
                     <TextBox Name="CambiaXMAX" Width="50" Height="30" Margin="7" Visibility="Collapsed" TextAlignment="Center">
                         <TextBox.ToolTip>
                             <ToolTip>Valor Máx. X</ToolTip>
@@ -78,7 +82,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Nombre" DisplayMemberBinding="{Binding Nombre}" Width="75">
-                                
+
                             </GridViewColumn>
                             <GridViewColumn Header="Expresion" DisplayMemberBinding="{Binding Expresion}" Width="95">
 
@@ -114,7 +118,7 @@
                     <StackPanel>
                         <Button Name="ModificaFuncion" Click="ModificaFuncion_Click" Width="70" Margin="7" Visibility="Collapsed">Modificar</Button>
                     </StackPanel>
-                    
+
                     <StackPanel>
                         <Button Name="EliminarDeGrafica" Click="EliminarDeGrafica_Click" Width="70" Margin="7" Visibility="Collapsed">Eliminar</Button>
                     </StackPanel>

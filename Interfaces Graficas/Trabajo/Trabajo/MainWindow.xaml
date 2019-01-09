@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Trabajo"
         mc:Ignorable="d"
-        Title="Graficas" Height="450" Width="800" SizeChanged="Window_SizeChanged" Closed="Window_Closed">
+        Title="Graficas" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
         <Canvas Name="lienzo" Height="450" Width="800">
         </Canvas>
